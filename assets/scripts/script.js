@@ -7,7 +7,16 @@ const allClearButton = document.querySelector('[data-all-clear]');
 const previousSumText = document.querySelector('[data-previous-sum]');
 const currentSumText = document.querySelector('[data-current-sum]');
 
-class calculator {
+const calculator = new Calculator(previousSumText, currentSumText);
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText);
+        calculator.updateDisplay();
+    });
+});
+
+class Calculator {
     constructor(previousSumText, currentSumText) {
         this.previousSumText = previousSumText;
         this.currentSumText = currentSumText;
@@ -39,4 +48,4 @@ class calculator {
     updateDisplay() {
 
     };
-}
+};
