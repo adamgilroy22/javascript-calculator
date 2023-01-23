@@ -23,7 +23,7 @@ class Calculator {
     chooseOperation(operation) {
         if (this.currentSum === '') return;
         if (this.previousSum !== '') {
-            this.compute();
+            this.calculate();
         };
         this.operation = operation;
         this.previousSum = this.currentSum;
@@ -31,6 +31,29 @@ class Calculator {
     };
 
     calculate() {
+        let calculation;
+        const prev = parseFloat(this.previousSum);
+        const current = parseFloat(this.currentSum);
+        if (isNaN(prev) || isNaN(current)) return;
+        switch (this.operation) {
+            case '+':
+                calculation = prev + current
+                break
+            case '-':
+                calculation = prev - current
+                break
+            case 'x':
+                calculation = prev * current
+                break
+            case '÷':
+                calculation = prev / current
+                break
+            default:
+                return
+        }
+        this.currentSum = calculation;
+        this.operation = undefined;
+        this.previousSum = '';
 
     };
 
@@ -63,4 +86,9 @@ operationButtons.forEach(button => {
         calculator.chooseOperation(button.innerText);
         calculator.updateDisplay();
     });
+});
+
+equalsButton.addEventListener('click', button => {
+    calculator.calculate();
+    calculator.updateDisplay();
 });
