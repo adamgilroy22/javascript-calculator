@@ -11,10 +11,13 @@ class calculator {
     constructor(previousSumText, currentSumText) {
         this.previousSumText = previousSumText;
         this.currentSumText = currentSumText;
+        this.clear();
     };
 
     clear() {
-
+        this.currentSum = '';
+        this.previousSum = '';
+        this.operation = undefined;
     };
 
     delete() {
