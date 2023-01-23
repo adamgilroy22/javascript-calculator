@@ -4,10 +4,10 @@ const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
 const allClearButton = document.querySelector('[data-all-clear]');
-const previousSumText = document.querySelector('[data-previous-sum]');
-const currentSumText = document.querySelector('[data-current-sum]');
+const previousSumTextElement = document.querySelector('[data-previous-sum]');
+const currentSumTextElement = document.querySelector('[data-current-sum]');
 
-const calculator = new Calculator(previousSumText, currentSumText);
+const calculator = new Calculator(previousSumTextElement, currentSumTextElement);
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -34,7 +34,7 @@ class Calculator {
     };
 
     appendNumber(number) {
-
+        this.currentSum = number
     };
 
     chooseOperation(operation) {
