@@ -60,7 +60,9 @@ class Calculator {
 
     updateDisplay() {
         this.currentSumText.innerText = this.currentSum;
-        this.previousSumText.innerText = this.previousSum;
+        if (this.operation != null) {
+            this.previousSumText.innerText = `${this.previousSum} ${this.operation}`;
+        };
     };
 };
 
