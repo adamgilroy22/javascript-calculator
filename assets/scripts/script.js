@@ -58,10 +58,27 @@ class Calculator {
 
     };
 
+    getDisplayNumber(number) {
+        const stringNumber = number.toString();
+        const integerDigits = parseFloat(stringNumber.split('.')[0]);
+        const decimalDigits = stringNumber.split('.')[1];
+        let integerDisplay;
+        if (isNaN(integerDigits)) {
+            integerDisplay = '';
+        } else {
+            integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 });
+        }
+        if (decimalDigits != null) {
+            return `${integerDisplay}.${decimalDigits}`;
+        } else {
+            return integerDisplay;
+        };
+    };
+
     updateDisplay() {
-        this.currentSumText.innerText = this.currentSum;
+        this.currentSumText.innerText = this.getDisplayNumber(this.currentSum);
         if (this.operation != null) {
-            this.previousSumText.innerText = `${this.previousSum} ${this.operation}`;
+            this.previousSumText.innerText = `${this.getDisplayNumber(this.previousSum)} ${this.operation}`;
         };
     };
 };
