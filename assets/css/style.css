@@ -3,7 +3,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: large;
+    font-size: x-large;
   }
   
   body {
