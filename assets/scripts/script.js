@@ -11,8 +11,9 @@ class Calculator {
         this.operation = undefined;
     };
 
+    // Deletes last number on calculator screen
     delete() {
-
+        this.currentSum = this.currentSum.toString().slice(0, -1)
     };
 
     appendNumber(number) {
@@ -95,5 +96,10 @@ equalsButton.addEventListener('click', button => {
 
 allClearButton.addEventListener('click', button => {
     calculator.clear();
+    calculator.updateDisplay();
+});
+
+deleteButton.addEventListener('click', button => {
+    calculator.delete();
     calculator.updateDisplay();
 });
