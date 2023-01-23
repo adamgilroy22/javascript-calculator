@@ -21,7 +21,13 @@ class Calculator {
     };
 
     chooseOperation(operation) {
-
+        if (this.currentSum === '') return;
+        if (this.previousSum !== '') {
+            this.compute();
+        };
+        this.operation = operation;
+        this.previousSum = this.currentSum;
+        this.currentSum = '';
     };
 
     calculate() {
@@ -30,6 +36,7 @@ class Calculator {
 
     updateDisplay() {
         this.currentSumText.innerText = this.currentSum;
+        this.previousSumText.innerText = this.previousSum;
     };
 };
 
@@ -47,6 +54,13 @@ const calculator = new Calculator(previousSumText, currentSumText);
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText);
+        calculator.updateDisplay();
+    });
+});
+
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText);
         calculator.updateDisplay();
     });
 });
