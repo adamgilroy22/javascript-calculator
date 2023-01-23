@@ -79,6 +79,8 @@ class Calculator {
         this.currentSumText.innerText = this.getDisplayNumber(this.currentSum);
         if (this.operation != null) {
             this.previousSumText.innerText = `${this.getDisplayNumber(this.previousSum)} ${this.operation}`;
+        } else {
+            this.previousSumText.innerText = '';
         };
     };
 };
