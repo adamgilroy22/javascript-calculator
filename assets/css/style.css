@@ -61,3 +61,16 @@
     color: #ffffff;
     font-size: 2.5rem;
   }
+
+/* Media queries */
+@media only screen and (max-width: 425px) {
+    
+    .previous-sum, .current-sum {
+        font-size: large;
+      }
+
+      .calculator {
+        grid-template-columns: repeat(4, 78px);
+        grid-template-rows: minmax(100px, auto) repeat(5, 85px);
+      }
+  }
