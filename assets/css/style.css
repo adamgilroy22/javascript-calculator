@@ -65,8 +65,14 @@
 /* Media queries */
 @media only screen and (max-width: 425px) {
     
-    .previous-sum, .current-sum {
-        font-size: large;
+    .screen .previous-sum {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 1rem;
+      }
+    
+      .screen .current-sum {
+        color: #ffffff;
+        font-size: 1.5rem;
       }
 
       .calculator {
